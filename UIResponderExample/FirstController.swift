@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class FirstController: UIViewController {
   var btn: UIButton = UIButton()
 
   override func viewDidLoad() {
@@ -19,7 +19,7 @@ class ViewController: UIViewController {
 
   private func setBtn() {
     view.addSubview(btn)
-    btn.tintColor = .black
+    btn.backgroundColor = .black
     btn.setTitle("Go to second vc", for: .normal)
     btn.setTitleColor(.white, for: .normal)
     btn.translatesAutoresizingMaskIntoConstraints = false
@@ -27,6 +27,11 @@ class ViewController: UIViewController {
       btn.centerYAnchor.constraint(equalTo: view.centerYAnchor),
       btn.centerXAnchor.constraint(equalTo: view.centerXAnchor)
     ])
+    btn.addTarget(self, action: #selector(btnTap), for: .touchUpInside)
+  }
+
+  @objc private func btnTap() {
+    navigationController?.pushViewController(SecondViewController(), animated: false)
   }
 }
 
