@@ -8,8 +8,8 @@
 import UIKit
 
 class CustomView: UIView {
-  private var hInset: CGFloat = 5
-  private var vInset: CGFloat = 15
+  private var yInset: CGFloat = 5
+  private var xInset: CGFloat = 15
   private var btn: UIButton = UIButton()
 
   override init(frame: CGRect) {
@@ -25,8 +25,12 @@ class CustomView: UIView {
     addSubview(btn)
     btn.backgroundColor = .black
     btn.setTitle("responde to vc", for: .normal)
-    btn.titleEdgeInsets = UIEdgeInsets(top: vInset, left: hInset, bottom: vInset, right: hInset)
+    btn.titleEdgeInsets = UIEdgeInsets(top: yInset, left: xInset, bottom: yInset, right: xInset)
     btn.setTitleColor(.white, for: .normal)
+    btn.titleLabel?.adjustsFontSizeToFitWidth = true
+    btn.titleLabel?.font = UIFont.systemFont(ofSize: 24)
+    btn.layer.cornerRadius = 10
+    btn.layer.masksToBounds = true
     btn.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
       btn.centerYAnchor.constraint(equalTo: centerYAnchor),
