@@ -8,9 +8,19 @@
 import UIKit
 
 class CustomView: UIView {
-  private var yInset: CGFloat = 5
-  private var xInset: CGFloat = 15
-  private var btn: UIButton = UIButton()
+  private var btn: UIButton = {
+    let button = UIButton()
+    button.backgroundColor = .black
+    button.setTitle("responde to vc", for: .normal)
+    button.titleEdgeInsets = UIEdgeInsets(top: 5, left: 15, bottom: 5, right: 15)
+    button.setTitleColor(.white, for: .normal)
+    button.titleLabel?.adjustsFontSizeToFitWidth = true
+    button.titleLabel?.font = UIFont.systemFont(ofSize: 24)
+    button.layer.cornerRadius = 10
+    button.layer.masksToBounds = true
+    button.translatesAutoresizingMaskIntoConstraints = false
+    return button
+  }()
 
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -23,15 +33,6 @@ class CustomView: UIView {
 
   private func setBtn() {
     addSubview(btn)
-    btn.backgroundColor = .black
-    btn.setTitle("responde to vc", for: .normal)
-    btn.titleEdgeInsets = UIEdgeInsets(top: yInset, left: xInset, bottom: yInset, right: xInset)
-    btn.setTitleColor(.white, for: .normal)
-    btn.titleLabel?.adjustsFontSizeToFitWidth = true
-    btn.titleLabel?.font = UIFont.systemFont(ofSize: 24)
-    btn.layer.cornerRadius = 10
-    btn.layer.masksToBounds = true
-    btn.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
       btn.centerYAnchor.constraint(equalTo: centerYAnchor),
       btn.centerXAnchor.constraint(equalTo: centerXAnchor)
