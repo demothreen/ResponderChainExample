@@ -13,7 +13,7 @@ class MainController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "Main VC"
-    view.backgroundColor = .red.withAlphaComponent(0.6)
+    view.backgroundColor = .white
     setView()
   }
 
